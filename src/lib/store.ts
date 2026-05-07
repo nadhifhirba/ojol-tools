@@ -3,6 +3,9 @@ import { create } from 'zustand';
 export type EarningsEntry = {
   date: string;
   trips: number;
+  from: string;
+  to: string;
+  distance: number;
   earnings: number;
   tips: number;
   expenses: number;
@@ -45,6 +48,9 @@ const initialEarnings: EarningsEntry[] = [
   {
     date: today,
     trips: 14,
+    from: "Gambir",
+    to: "Kuningan",
+    distance: 12.4,
     earnings: 482000,
     tips: 35000,
     expenses: 97000,
@@ -53,6 +59,9 @@ const initialEarnings: EarningsEntry[] = [
   {
     date: '2026-05-01',
     trips: 12,
+    from: "Bandara Soetta",
+    to: "Sudirman",
+    distance: 28.7,
     earnings: 441000,
     tips: 25000,
     expenses: 91000,
@@ -61,6 +70,9 @@ const initialEarnings: EarningsEntry[] = [
   {
     date: '2026-04-30',
     trips: 11,
+    from: "Tebet",
+    to: "Kemang",
+    distance: 8.9,
     earnings: 398000,
     tips: 15000,
     expenses: 88000,

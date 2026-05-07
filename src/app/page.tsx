@@ -6,7 +6,7 @@ import { useOjolStore } from '@/lib/store';
 import { formatRupiah } from '@/lib/format';
 
 export default function HomePage() {
-  const trips = useOjolStore((s) => s.trips);
+  const trips = useOjolStore((s) => s.earningsEntries);
   const earnings = trips.reduce((s,t) => s + t.earnings, 0);
   const todayTrips = trips.filter(t => { const d = new Date(t.date); const now = new Date(); return d.toDateString() === now.toDateString(); });
   const todayEarnings = todayTrips.reduce((s,t) => s + t.earnings, 0);
@@ -60,8 +60,8 @@ export default function HomePage() {
           <Clock3 size={14} className="inline mr-2 text-[#00AA13]" />Trip Terbaru
         </h2>
         <div className="space-y-2">
-          {trips.slice(0,5).map(t=>(
-            <div key={t.id} className="driver-card flex items-center justify-between">
+          {trips.slice(0,5).map((t, i)=>(
+            <div key={i} className="driver-card flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#00AA13]/10">
                   <MapPinned size={14} className="text-[#00AA13]" />
